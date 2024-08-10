@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.takiwn.items.ModItems;
 import ru.takiwn.materials.HammerTier;
-import ru.takiwn.materials.Ranmer;
 
 public class TakiOpenWorld implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -27,17 +26,14 @@ public class TakiOpenWorld implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Hello from takiwn!");
 		ModItems.initialize();
-		UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-			ItemStack stack = player.getStackInHand(hand);
-				HammerTier randomTier = HammerTier.getRandomTier();
-				Ranmer.setHammerTier(stack, randomTier);
-			return ActionResult.PASS;
-		});
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
 				.register((itemGroup) -> itemGroup.add(ModItems.DICE_D6));
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-				.register((itemGroup) -> itemGroup.add(ModItems.RANMER));
+				.register((itemGroup) -> itemGroup.add(ModItems.KRITANA));
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+				.register((itemGroup) -> itemGroup.add(ModItems.WARDEN_HEART));
 	}
 }
