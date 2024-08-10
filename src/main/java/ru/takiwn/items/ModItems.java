@@ -8,8 +8,6 @@ import net.minecraft.util.Rarity;
 import ru.takiwn.TakiOpenWorld;
 import ru.takiwn.materials.KritanaMaterial;
 import ru.takiwn.materials.Kritana;
-import ru.takiwn.materials.Ranmer;
-import ru.takiwn.materials.RanmerMaterial;
 
 import static net.minecraft.item.SwordItem.createAttributeModifiers;
 
@@ -25,9 +23,6 @@ public class ModItems {
             new Item.Settings().attributeModifiers(createAttributeModifiers(KritanaMaterial.INSTANCE, 7, -2.4F))
                     .rarity(Rarity.RARE).fireproof()), "kritana");
 
-    public static final Item RANMER = register(new Ranmer(RanmerMaterial.INSTANCE,
-            new Item.Settings().attributeModifiers(
-                    createAttributeModifiers(RanmerMaterial.INSTANCE, 0, -2.0F)).rarity(Rarity.EPIC)), "ranmer");
 
     public static Item register(Item item, String id) {
         Identifier itemID = Identifier.of(TakiOpenWorld.MOD_ID, id);
